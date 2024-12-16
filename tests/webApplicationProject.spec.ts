@@ -11,6 +11,7 @@ interface TestData {
     tags: string[];
 }
 
+// Test data
 const testData: Array<TestData> = [
     { id: 1, application: 'Web Application', task: 'Implement user authentication', column: 'To Do', tags: ['Feature', 'High Priority'] },
     { id: 2, application: 'Web Application', task: 'Fix navigation bug', column: 'To Do', tags: ['Bug'] },
