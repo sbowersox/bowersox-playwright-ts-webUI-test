@@ -35,7 +35,7 @@ for (const { id, application, task, column, tags } of testData) {
 
             await mainPage.navigateToApplication(application);
             const isTaskInColumn = await mainPage.verifyTaskInColumn(task, column);
-            expect(isTaskInColumn).toBeTruthy();
+            expect(isTaskInColumn, 'Check Task in correct column').toBeTruthy();
             const tagsInTask = await mainPage.getTaskTags(task, tags);
             //expect(tagsInTask.length, 'Check tag count matches').toBe(tags.length);
             expect(tagsInTask, 'Check tags match').toEqual(tags.sort());
