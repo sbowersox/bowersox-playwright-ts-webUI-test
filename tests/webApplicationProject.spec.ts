@@ -36,10 +36,10 @@ for (const { id, application, task, column, tags } of testData) {
 
             await mainPage.navigateToApplication(application);
             const isTaskInColumn = await mainPage.verifyTaskInColumn(task, column);
-            expect(isTaskInColumn, 'Check Task in correct column').toBeTruthy();
-            const tagsInTask = await mainPage.getTaskTags(task, tags);
-            //expect(tagsInTask.length, 'Check tag count matches').toBe(tags.length);
-            expect(tagsInTask, 'Check tags match').toEqual(tags.sort());
+            expect(isTaskInColumn, 'Validate Task in correct column').toBeTruthy();
+            const tagsInTask = await mainPage.getTaskTags(task);
+            expect(tagsInTask.length, 'Validate tag count matches').toBe(tags.length);
+            expect(tagsInTask, 'Validate tags match').toEqual(tags.sort());
 
         });
 

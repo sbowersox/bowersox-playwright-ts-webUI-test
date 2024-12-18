@@ -26,7 +26,7 @@ export class LoginPage {
      */
     async goto(): Promise<void> {
         await this.page.goto(this.url);
-        await expect(this.page).toHaveURL(this.url);
+        await expect(this.page, 'Validate URL').toHaveURL(this.url);
     };
 
     /**

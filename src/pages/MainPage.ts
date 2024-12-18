@@ -25,8 +25,8 @@ export class MainPage {
      * @returns  Promise<void>
      */
     async confirmHomePage(): Promise<void> {
-        await expect(this.page).toHaveURL('https://animated-gingersnap-8cf7f2.netlify.app/');
-        await expect(this.projectsHeading).toBeVisible();
+        await expect(this.page, 'Validate URL').toHaveURL('https://animated-gingersnap-8cf7f2.netlify.app/');
+        await expect(this.projectsHeading, 'Validate Project Heading Visible').toBeVisible();
         console.log('Navigated to the Main Page successfully');
     }
 
@@ -36,7 +36,7 @@ export class MainPage {
      */
     async logout(): Promise<void> {
         await this.logoutBtn.click();
-        await expect(this.projectBoardLoginHeading).toBeVisible();
+        await expect(this.projectBoardLoginHeading, 'Validate on Login Page').toBeVisible();
         console.log('Logged out successfully');
 
     }
@@ -50,7 +50,7 @@ export class MainPage {
         const appLocator = this.page.getByRole('button', { name: application });
         const appHeading = this.page.getByRole('banner').getByRole('heading', { name: application });
         await appLocator.click();
-        await expect(appHeading).toHaveText(application);
+        await expect(appHeading, 'Validate App Heading').toHaveText(application);
         console.log(`Navigated to the ${application} project board successfully`);
     };
 
@@ -77,11 +77,11 @@ export class MainPage {
     }
 
     /**
-     * Verifies that the tag/s are present in the Task
-     * @param tags The tags to verify
+     * Returns the tags that are present in the Task
+     * @param task The task to get the tags from
      * @returns Promise<boolean>
      */
-    async getTaskTags(task: string, tags: string[]): Promise<string[]> {
+    async getTaskTags(task: string): Promise<string[]> {
         let taskTags: string[] = [];
         const taskLocator = this.page.getByRole('heading', { name: task }).locator('//parent::div/div/span');
         try {

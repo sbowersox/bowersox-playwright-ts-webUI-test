@@ -26,10 +26,10 @@ To get started with this project, follow the instructions below:
     ```
 
 3. **Add credentials**:
-    ```bash
+    From the .env file, fill in the appropriate credentials to allow the test to run
     LOGIN_USERNAME=[username]
     LOGIN_PASSWORD=[password]
-    ```
+    The .env file is in the repo but is on gitignore so no local changes should be pushed back 
 
 4. **Run tests**:
     ```bash
